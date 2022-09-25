@@ -29,8 +29,8 @@
         "type": "quantitative",
         "scale": {
             "type": "threshold",
-            "domain": [10, 500, 1500],
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+            "domain": [1, 300, 1000, 1500],
+            "range": ["#d9d9d9", "#fed976", "#fd8d3c", "#f03b20", "#bd0026"]
             }
       },
       "tooltip": [
