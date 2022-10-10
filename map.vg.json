@@ -20,6 +20,7 @@
     "width": 800,
     "height": 400,
     "projection": {"type": "equalEarth"},
+    
     "data": {
       "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -55,16 +56,39 @@
       ]
     }
   }, {
-    "title": "Number of Space Missions by Countries Each Year",
-    "transform": [{"filter": "datum.Date == Year"}],
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "aggregate": "sum", "field": "Valid",
-      "title": "Number of Space Missions"
-    },
-    "x": {"field": "Location"}
-  }
+    "layer": [
+      {
+        "title": "Number of Space Missions by Countries Each Year",
+        "transform": [{"filter": "datum.Date == Year"}],
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "aggregate": "sum", "field": "Valid",
+            "title": "Number of Space Missions"
+          },
+          "x": {"field": "Location"},
+        "tooltip": [
+          {"field": "Location", "type": "nominal", "title": "Country"},
+          {"aggregate": "sum", "field": "Valid", "type": "quantitative", "title": "Number of Space Missions"}
+          ]
+        }
+      },
+      {
+        "transform": [{"filter": "datum.Date == Year"}],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "stroke": "black",
+          "dx": 120,
+          "fontSize": 9
+        },
+        "encoding": {
+          "text": {"field": "Valid", "type": "quantitative", "aggregate": "sum"}
+        }
+      }
+    ]
+    
   }]
   
 }
