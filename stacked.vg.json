@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "spacems.csv"},
+  "mark": {
+    "type": "bar",
+    "cornerRadius": {"expr": "cornerRadius"}
+  },
+  "params": [
+    {
+      "name": "Year",
+      "value": 1957,
+      "bind": {
+        "input": "range",
+        "min": 1957,
+        "max": 2022,
+        "step": 1,
+        "name": "Year: "
+    } },
+    { "name": "cornerRadius", "value": 50}
+  ],
+  "transform": [{"filter": "datum.Date == Year"}],
+  "encoding": {
+    "x": {"aggregate": "sum", "field": "Valid"},
+    "y": {"field": "Location", "title": "Country"},
+    "color": {"title": "Mission Result", "field": "MissionStatus", "scale": {"scheme": "yelloworangered"}}
+  }
+}

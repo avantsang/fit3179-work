@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bar chart showing the US population distribution of age groups in 2000.",
+  "height": {"step": 17},
+  "data": { "url": "spacems.csv"},
+  "params": [
+    {
+      "name": "Year",
+      "value": 1957,
+      "bind": {
+        "input": "range",
+        "min": 1957,
+        "max": 2022,
+        "step": 1,
+        "name": "Year: "
+    } },
+    { "name": "cornerRadius", "value": 50}
+  ],
+  "layer": [
+    {
+      "title": "Number of Space Missions by Countries Each Year",
+      "transform": [{"filter": "datum.Date == Year"}],
+      "mark": {
+        "type": "bar",
+        "cornerRadius": {"expr": "cornerRadius"}
+      },
+      "encoding": {
+        "y": {
+          "aggregate": "sum", "field": "Valid",
+          "title": "Number of Space Missions"
+        },
+        "x": {"field": "Location", "title": "Country"},
+        "color": {"value": "#f03b20"},
+      "tooltip": [
+        {"field": "Location", "type": "nominal", "title": "Country"},
+        {"aggregate": "sum", "field": "Valid", "type": "quantitative", "title": "Number of Space Missions"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Date == Year"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "stroke": "black",
+        "dx": 120,
+        "fontSize": 9
+      },
+      "encoding": {
+        "text": {"field": "Valid", "type": "quantitative", "aggregate": "sum"}
+      }
+    }
+  ]
+  
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stock prices of 5 Tech Companies over Time.",
+  "data": {"url": "spacems.csv"},
+  "title": "Number of Space Missions by the Dominant Countries Over Time",
+  "width": 700,
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": false,
+          "fill": "white"
+        }
+      },
+      "transform": [{"filter": "datum.Location == 'USA' || datum.Location == 'China' || datum.Location == 'Russia'"}],
+      "encoding": {
+        "x": {"timeUnit": "year", "field": "Date", "title": "Year"},
+        "y": {"aggregate":"sum", "field": "Valid", "type": "quantitative", "title": "Number of Space Missions"},
+        "color": {"field": "Location", "scale": {"scheme": "yelloworangered"}, "type": "nominal", "title": "Country"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontWeight": "normal",
+        "dx": -100,
+        "dy": -50,
+        "fontSize": 20,
+        "text": "🚀 USA Wins the Space Race in 1975"
+      }
+    }
+  
+  ]
+}
