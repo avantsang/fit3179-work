@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A bar chart showing the US population distribution of age groups in 2000.",
+  "description": "Missions",
   "height": {"step": 17},
   "data": { "url": "spacems.csv"},
 
