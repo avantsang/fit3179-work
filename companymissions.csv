@@ -1,0 +1,10 @@
+﻿id,Location,Company,Group,Value,Failures,Partial Failures,Successes,Missions,Success Rate
+1,🇨🇳 China,🇨🇳 CASC,Failures,14,14,6,315,335,94%
+2,🇨🇳 China,🇨🇳 CASC,Partial Failures,6,14,6,315,335,94%
+3,🇨🇳 China,🇨🇳 CASC,Successes,315,14,6,315,335,94%
+4,🇷🇺 Russia,🇷🇺 VKS RF,Failures,8,8,6,202,216,93%
+5,🇷🇺 Russia,🇷🇺 VKS RF,Partial Failures,6,8,6,202,216,93%
+6,🇷🇺 Russia,🇷🇺 VKS RF,Successes,202,8,6,202,216,93%
+7,🇺🇸 USA,🇺🇸 SpaceX,Failures,5,5,4,173,181,95%
+8,🇺🇸 USA,🇺🇸 SpaceX,Partial Failures,4,5,4,173,181,95%
+9,🇺🇸 USA,🇺🇸 SpaceX,Successes,173,5,4,173,181,95%

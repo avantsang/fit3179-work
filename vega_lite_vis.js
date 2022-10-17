@@ -1,5 +1,5 @@
 var vg_1 = "map.vg.json"; 
-var vg_2 = "bar.vg.json"; 
+var vg_2 = "company.vg.json"; 
 var vg_3 = "line.vg.json"; 
 var vg_4 = "stacked.vg.json"; 
 

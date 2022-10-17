@@ -1,32 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "missions.csv"},
-  "width": 299,
+  "data": {"url": "companymissions.csv"},
+  "width": 230,
   "mark": {
     "type": "bar",
     "cornerRadius": {"expr": "cornerRadius"}
   },
   "params": [
-    {
-      "name": "Year",
-      "value": 1957,
-      "bind": {
-        "input": "range",
-        "min": 1957,
-        "max": 2022,
-        "step": 1,
-        "name": "Year: "
-    } },
     { "name": "cornerRadius", "value": 50}
   ],
-  "title": "Number of Space Missions by Countries Each Year",
-  "transform": [{"filter": "datum.Date == Year"}, {"fold": ["Successes", "Failures", "Partial Failures"], "as": ["column", "value"]}],
   "encoding": {
-    "x": {"aggregate": "sum", "field": "value", "title": "Number of Space Missions", "scale": {"domain": [0, 75]}},
-    "y": {"field": "Location", "title": "Country"},
-    "color": {"title": "Mission Result", "field": "column", "scale": {"scheme": "yelloworangered"}},
+    "x": {"field": "Company", "axis": {"labelAngle": 0}},
+    "y": {"field": "Value", "type": "quantitative", "title": "Numver of Space Missions"},
+    "xOffset": {"field": "Group"},
+    "color": {"field": "Group", "scale": {"scheme": "yelloworangered"}, "title": "Mission Status"},
     "tooltip": [
       {"field": "Location", "type": "nominal", "title": "Country"},
+      {"field": "Success Rate", "title": "Success Rate"},
       {"aggregate": "sum", "field": "Missions", "type": "quantitative", "title": "Total Number of Missions"},
       {"aggregate": "sum", "field": "Failures", "type": "quantitative", "title": "Number of Failures"},
       {"aggregate": "sum", "field": "Partial Failures", "type": "quantitative", "title": "Number of Partial Failures"},
