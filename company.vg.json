@@ -12,7 +12,7 @@
   ],
   "encoding": {
     "x": {"field": "Company", "axis": {"labelAngle": 0}},
-    "y": {"field": "Value", "type": "quantitative", "title": "Numver of Space Missions"},
+    "y": {"field": "Value", "type": "quantitative", "title": "Number of Space Missions"},
     "xOffset": {"field": "Group"},
     "color": {"field": "Group", "scale": {"scheme": "yelloworangered"}, "title": "Mission Status"},
     "tooltip": [
